@@ -1,0 +1,233 @@
+@model PortfolioApp.Models.PortfolioData
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <span class="eyebrow">PORTFOLIO 2026</span>
+            <h1>@Model.Name</h1>
+            <h2>@Model.Title</h2>
+            <p class="lead">@Model.Tagline</p>
+            <p class="summary">@Model.Summary</p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">مشاريعي</a>
+                <a href="#contact" class="btn btn-secondary">تواصل</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/@Model.GithubUser" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://linkedin.com/in/@Model.LinkedInUser" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="mailto:@Model.Email">Email</a>
+            </div>
+        </div>
+
+        <div class="hero-panel">
+            <div class="mini-card card-accent">
+                <span>Focus</span>
+                <strong>AI + Data + Software + Automation</strong>
+            </div>
+            <div class="mini-card">
+                <span>Mission</span>
+                <strong>Build. Analyze. Automate. Transform.</strong>
+            </div>
+            <div class="mini-card">
+                <span>Impact</span>
+                <strong>Real digital value for business and society</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">01 | من أنا؟</span>
+            <h3>Computer Science Professional</h3>
+        </div>
+
+        <div class="about-grid">
+            <div class="text-block">
+                <p>
+                    خريج علوم حاسوب أعمل على تطوير المعرفة التقنية بصورة عملية، مع التركيز على تحويل علوم الحاسوب والذكاء الاصطناعي وتحليل البيانات إلى حلول حقيقية قابلة للاستخدام.
+                </p>
+                <p>
+                    لا أتعامل مع التقنية كأدوات منفصلة، بل كمنظومة تبدأ من المشكلة، ثم البيانات، التحليل، التصميم، البرمجة، الأتمتة، القياس، ثم التحسين.
+                </p>
+            </div>
+
+            <div class="quote-card">
+                <p>@Model.PortfolioStatement</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="focus" class="section section-alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">02 | الرؤية المهنية</span>
+            <h3>Technology with Purpose</h3>
+        </div>
+
+        <div class="cards-grid cards-4">
+            @foreach (var track in Model.Tracks)
+            {
+                <article class="feature-card">
+                    <div class="feature-icon">@track.Icon</div>
+                    <h4>@track.Title</h4>
+                    <p>@track.Description</p>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="section">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">03 | المهارات</span>
+            <h3>Core Technical Stack</h3>
+        </div>
+
+        <div class="skill-grid">
+            <div class="skill-box">
+                <h4>Core</h4>
+                <ul>
+                    @foreach (var item in Model.CoreSkills)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="skill-box">
+                <h4>AI</h4>
+                <ul>
+                    @foreach (var item in Model.AiSkills)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="skill-box">
+                <h4>Software</h4>
+                <ul>
+                    @foreach (var item in Model.SoftwareSkills)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="skill-box">
+                <h4>Professional</h4>
+                <ul>
+                    @foreach (var item in Model.ProfessionalSkills)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section section-alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">04 | المشروعات</span>
+            <h3>Selected Work</h3>
+        </div>
+
+        <div class="project-grid">
+            @foreach (var project in Model.Projects)
+            {
+                <article class="project-card">
+                    <span class="tag">@project.Category</span>
+                    <h4>@project.Name</h4>
+                    <p>@project.Description</p>
+
+                    <div class="meta-block">
+                        <strong>Technology:</strong>
+                        <span>@project.Stack</span>
+                    </div>
+
+                    <div class="meta-block">
+                        <strong>Impact:</strong>
+                        <span>@project.Impact</span>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">05 | التعليم والبحث</span>
+            <h3>Learning Philosophy & Research</h3>
+        </div>
+
+        <div class="cards-grid cards-3">
+            @foreach (var item in Model.Education)
+            {
+                <article class="info-card">
+                    <h4>@item.Title</h4>
+                    <p>@item.Details</p>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">06 | السعودية والتحول الرقمي</span>
+            <h3>Saudi Market Focus</h3>
+        </div>
+
+        <div class="market-grid">
+            <div class="market-box">
+                <h4>Demand → Service → Customer → Revenue → Automation</h4>
+                <p>
+                    أركز على فهم الاحتياجات الحقيقية للسوق السعودي، خاصة في الجبيل، وتحويلها إلى حلول رقمية قابلة للتنفيذ وتحليلها كفرص تجارية ومجتمعية.
+                </p>
+            </div>
+            <div class="market-box highlight">
+                <h4>Build. Analyze. Automate. Transform.</h4>
+                <p>
+                    الهدف هو أن تكون التكنولوجيا أداة لإيجاد حلول عملية، وليس مجرد لغة أو أداة علمية منعزلة.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section cta-wrap">
+    <div class="container cta-box">
+        <div>
+            <span class="eyebrow">07 | الرسالة المهنية</span>
+            <h3>Build. Analyze. Automate. Transform.</h3>
+        </div>
+        <a href="mailto:@Model.Email" class="btn btn-primary">تواصل معي</a>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">08 | التواصل</span>
+            <h3>Let’s build meaningful digital solutions.</h3>
+        </div>
+
+        <div class="contact-box">
+            <p>Email: <a href="mailto:@Model.Email">@Model.Email</a></p>
+            <p>Location: @Model.Location</p>
+            <p>GitHub: <a href="https://github.com/@Model.GithubUser" target="_blank" rel="noreferrer">github.com/@Model.GithubUser</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/@Model.LinkedInUser" target="_blank" rel="noreferrer">linkedin.com/in/@Model.LinkedInUser</a></p>
+        </div>
+    </div>
+</section>
